@@ -1,7 +1,11 @@
 package com.example.myapplication;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -55,4 +59,24 @@ public class MainActivity extends AppCompatActivity {
     public int division (int a,int b){
         return a/b;
     }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        switch (item.getItemId()){
+            case R.id.item1:
+                Uri sitio= Uri.parse("http://www.udh.edu.pe/");
+                Intent intentItem1 = new Intent(Intent.ACTION_VIEW, sitio);
+                startActivity(intentItem1);
+                return true;
+
+            case R.id.item2:
+                Intent intentItem2 = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intentItem2);
+                return true;
+
+        }
+    }
+
+
 }
